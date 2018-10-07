@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.compileSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //alibaba框架arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    api deps.supportv7
+    api deps.constraintlayout
+    api "com.chanven.lib:cptr:$rootProject.cptrVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.testRunVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoCcoreVersion"
+    api deps.butterknife
+    annotationProcessor deps.butterknifeCompiler
+    api deps.design
+    api deps.rxjava
+    api deps.rxandroid
+    api deps.retrofit
+    api deps.retrofit2_converter_gson
+    api deps.retrofit2_adapter_rxjava2
+    api deps.okhttp3_logging_interceptor
+    // 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+    api("com.alibaba:arouter-api:$rootProject.arouterApiVersion") {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor("com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion")
+    // 支持 GIF 动图，需要添加
+    api "com.facebook.fresco:animated-gif:$rootProject.frescoVersion"
+    //fresco
+    api "com.facebook.fresco:fresco:$rootProject.frescoVersion"
+    //dagger
+    api deps.dagger
+    annotationProcessor deps.dagger_compiler
+    //沉浸式状态栏
+    api deps.immersionbar
+    //glide
+    api deps.glide
+    //rxlifecycle
+    api deps.rxlifecycle
+    api deps.rxlifecycle_components
+    api deps.rxlifecycle_android
+
+    //leak
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
+    testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
+}
