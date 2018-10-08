@@ -16,8 +16,10 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import org.hxy.platform.android.common.base.mvp.BaseActivity;
-import org.hxy.platform.android.common.utils.IconUtil;
-import org.hxy.platform.android.common.utils.PreferenceUtils;
+import org.hxy.platform.android.common.base.mvp.BasePresenter;
+import org.hxy.platform.android.common.base.mvp.BaseView;
+import org.hxy.platform.android.common.util.IconUtil;
+import org.hxy.platform.android.common.util.PreferenceUtils;
 import org.hxy.platform.android.my.R;
 import org.hxy.platform.android.my.R2;
 import org.hxy.platform.android.my.address.RecepitAddressActivity;
@@ -73,8 +75,22 @@ public class AccountSettingActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account_setting);
-        ButterKnife.bind(this);
+
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_account_setting;
+    }
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    public BaseView createView() {
+        return null;
     }
 
     @Override

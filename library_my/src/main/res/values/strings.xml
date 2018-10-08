@@ -94,4 +94,28 @@
     <string name="order_shopping_fee">运费</string>
     <string name="order_amount_fee">应付金额</string>
     <string name="order_coupon_hint">请输入优惠码</string>
+
+    <!-- 公共字符串 -->
+    <string name="count">数量</string>
+    <string name="comment">评论</string>
+    <string name="image_text_detail">图文详情</string>
+    <string name="order_pay">去结算</string>
+    <string name="coupon">优惠券</string>
+    <string name="use">使用</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="settings">设置</string>
+    <string name="exit">安全退出</string>
+    <string name="province">省</string>
+    <string name="city">市</string>
+    <string name="district">区</string>
+    <string name="town">镇</string>
+    <string name="delete">删除</string>
+    <string name="delete_history">删除历史记录</string>
+    <string name="search_history">搜索历史</string>
+    <string name="hot_search">热搜</string>
+    <string name="apply_return">申请售后</string>
+    <string name="apply_comment">去评价</string>
+    <string name="submit_comment">提交评论</string>
+    <string name="scan">扫一扫</string>
 </resources>

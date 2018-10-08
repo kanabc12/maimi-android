@@ -36,18 +36,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <org.hxy.platform.android.common.view.RecyclerRefreshLayout
+        <com.young.jdmall.ui.view.RecyclerRefreshLayout
             android:id="@+id/rl_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <org.hxy.platform.android.common.view.RecyclerMoreView
+            <com.young.jdmall.ui.view.RecyclerLoadMoreView
                 android:id="@+id/rl_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            </org.hxy.platform.android.common.view.RecyclerMoreView>
-        </org.hxy.platform.android.common.view.RecyclerRefreshLayout>
+            </com.young.jdmall.ui.view.RecyclerLoadMoreView>
+        </com.young.jdmall.ui.view.RecyclerRefreshLayout>
     </RelativeLayout>
 
 

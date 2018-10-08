@@ -1,6 +1,5 @@
 package org.hxy.platform.android.my.register;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,13 +11,13 @@ import android.widget.SeekBar;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import org.hxy.platform.android.common.base.mvp.BaseActivity;
-import org.hxy.platform.android.common.utils.ToastUtil;
+import org.hxy.platform.android.common.base.mvp.BasePresenter;
+import org.hxy.platform.android.common.base.mvp.BaseView;
+import org.hxy.platform.android.common.util.ToastUtil;
 import org.hxy.platform.android.common.widget.VerificationSeekBar;
-import org.hxy.platform.android.my.R;
 import org.hxy.platform.android.my.R2;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Date：2018/9/15 on 16:37
@@ -41,9 +40,27 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        unbinder = ButterKnife.bind(this);
         initEvent();
+    }
+
+    @Override
+    public int getLayoutId() {
+        return 0;
+    }
+
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    public BaseView createView() {
+        return null;
+    }
+
+    @Override
+    public void init() {
+
     }
 
     public void initEvent() {
