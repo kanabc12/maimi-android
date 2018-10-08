@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="dialog_bg">#aa333333</color>
+    <color name="no_network_bg">#333333</color>
+    <color name="search_corner_bg">#ddBBBABA</color>
+
+    <!-- 公共颜色属性 -->
+    <color name="bg_activity">#fff0f2f5</color>
+    <color name="bg_view">#ffffffff</color>
+    <color name="bg_header">#fff8f8f8</color>
+</resources>

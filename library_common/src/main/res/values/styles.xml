@@ -1,0 +1,124 @@
+<resources>
+
+    <style name="textStyle"></style>
+    <style name="textStyle.Small">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+    </style>
+
+    <style name="textStyle.Normal">
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+    </style>
+
+    <style name="NoBackGroundDialog" parent="@android:style/Theme.Dialog">
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    //bottom_navigation_bar
+    <style name="BadgeText" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">@dimen/badge_text_size</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_marginTop">@dimen/badge_top_margin</item>
+        <item name="android:paddingRight">@dimen/badge_width_padding</item>
+        <item name="android:paddingLeft">@dimen/badge_width_padding</item>
+        <item name="android:paddingBottom">@dimen/badge_height_padding</item>
+        <item name="android:paddingTop">@dimen/badge_height_padding</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- 小号 , 白色 -->
+    <style name="textStyle.Small.white" parent="textStyle.Small">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="separator_line">
+        <item name="android:background">#ffe0e0e0</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0px</item>
+    </style>
+    <!-- 普通号 , 副标题 -->
+    <style name="textStyle.Normal.subTitle" parent="textStyle.Normal">
+        <item name="android:textColor">@color/sub_title</item>
+    </style>
+    <!-- 普通号 , 黑色 -->
+    <style name="textStyle.Normal.black" parent="textStyle.Normal">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- 小号 , 黑色 -->
+    <style name="textStyle.Small.black" parent="textStyle.Small">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="textStyle.Medium">
+        <item name="android:textSize">@dimen/textSizeMedium</item>
+    </style>
+
+    <!-- 中号 , 黑色 -->
+    <style name="textStyle.Medium.black" parent="textStyle.Medium">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <!-- 中号 , 黑色 -->
+    <style name="textStyle.Medium.User" parent="textStyle.Medium.black">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="textStyle.Big">
+        <item name="android:textSize">@dimen/textSizeBig</item>
+    </style>
+
+    <!-- 大号 , 红色 -->
+    <style name="textStyle.Big.lightRed" parent="textStyle.Big">
+        <item name="android:textColor">@color/light_red</item>
+    </style>
+
+    <style name="edit_text" parent="@style/Widget">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/bg_line_write</item>
+        <item name="android:layout_marginLeft">@dimen/tag_common_margin</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+    </style>
+
+    <style name="sdw_white">
+        <item name="android:shadowColor">#7fffffff</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.65</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+    <style name="button_style" parent="@style/sdw_white">
+        <item name="android:layout_height">@dimen/height_button</item>
+        <item name="android:textSize">@dimen/textSizeMedium</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">@drawable/btn_bg</item>
+    </style>
+
+    <!-- 普通号 , 白色 -->
+    <style name="textStyle.Normal.white" parent="textStyle.Normal">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- 中号 , 白色 -->
+    <style name="textStyle.Medium.white" parent="textStyle.Medium">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- 普通号 , 红色 -->
+    <style name="textStyle.Normal.lightRed" parent="textStyle.Normal">
+        <item name="android:textColor">@color/light_red</item>
+    </style>
+
+    <!-- 大号 , 黑色 -->
+    <style name="textStyle.Big.black" parent="textStyle.Big">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

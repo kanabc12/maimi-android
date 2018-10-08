@@ -10,4 +10,123 @@
     <dimen name="sp_12">12sp</dimen>
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_16">16sp</dimen>
+
+    <dimen name="bottom_navigation_elevation">8dp</dimen>
+    <dimen name="bottom_navigation_height">50dp</dimen>
+    <dimen name="bottom_navigation_padded_height">64dp</dimen>
+    <dimen name="bottom_navigation_top_margin_correction">-8dp</dimen><!-- 64 - 56 = 8 -->
+
+    <dimen name="fixed_min_width">120dp</dimen>
+    <dimen name="fixed_min_width_small_views">104dp</dimen>
+    <dimen name="fixed_max_width">168dp</dimen>
+    <dimen name="fixed_width_padding">0dp</dimen>   <!--12dp-->
+
+    <dimen name="shifting_min_width_active">96dp</dimen>
+    <dimen name="shifting_max_width_active">168dp</dimen>
+    <dimen name="shifting_min_width_inactive">64dp</dimen>
+    <dimen name="shifting_max_width_inactive">96dp</dimen>
+    <dimen name="shifting_width_custom_padding">6dp</dimen>
+
+    <dimen name="badge_text_size">10sp</dimen><!-- 10 -->
+    <dimen name="badge_corner_radius">13dp</dimen><!-- 15 -->
+    <dimen name="badge_width_padding">4dp</dimen><!-- 4 -->
+    <dimen name="badge_height_padding">1dp</dimen><!-- 1 -->
+    <dimen name="badge_top_margin">4dp</dimen><!-- 2 -->
+
+    <dimen name="fixed_height">50dp</dimen>
+    <dimen name="fixed_height_top_padding_inactive">0dp
+    </dimen><!-- 8(Top Padding) - 12/2(extra padding due to badges) = 2 -->
+    <dimen name="fixed_height_top_padding_active">0dp
+    </dimen><!-- 6(Top Padding) - 12/2(extra padding due to badges) = 0 -->
+    <dimen name="fixed_height_bottom_padding">10dp</dimen>
+
+    <dimen name="fixed_label_active">14sp</dimen>
+    <dimen name="fixed_label_inactive">12sp</dimen>
+    <item name="fixed_label_active_to_inactive_ratio" format="float" type="dimen">0.857</item>
+
+    <dimen name="fixed_icon_grid">24dp</dimen>   <!--24dp-->
+    <dimen name="fixed_icon_badge_grid_height">50dp   <!--36dp-->
+    </dimen><!-- this adds 6 dp extra to top and bottom icon -->
+    <dimen name="fixed_icon_badge_grid_width"> 60dp  <!--48dp-->
+    </dimen><!-- this adds 6 dp extra to top and bottom icon -->
+
+    <dimen name="shifting_height">56dp</dimen>
+    <dimen name="shifting_height_bottom_padding_inactive">16dp
+    </dimen><!-- not used because in inactive state text-view will be hidden and for icon top padding would be enough -->
+    <dimen name="shifting_height_bottom_padding_active">10dp</dimen>
+    <dimen name="shifting_height_top_padding_active">0dp
+    </dimen><!-- 6(Top padding) - 12/2(extra padding due to badges) = 0 -->
+    <dimen name="shifting_height_top_padding_inactive">10dp
+    </dimen><!-- 56(total) - 24(icon) - 16(bottom padding inactive) = 16 ||| 16 - 12/2(extra padding due to badges)  = 10-->
+
+    <dimen name="shifting_label">14sp</dimen>
+
+
+    <dimen name="shifting_icon_grid">24dp</dimen>
+    <dimen name="shifting_icon_badge_grid_height">36dp</dimen>
+    <dimen name="shifting_icon_badge_grid_width">48dp</dimen>
+
+    //============UpToDownViewSwitcher =========
+    <dimen name="animator_translate_distance">40dp</dimen>
+
+    <!-- 公共颜色属性 -->
+    <color name="color_font_gray">#9e9d9d</color>
+    <color name="color_font_blue">#47B0DA</color>
+    <color name="green">#008000</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#ff9c00</color>//黄色
+    <color name="select_yellow">#f2b350</color>//选中黄色
+
+    <color name="button_fouces_gray">#f6f6f6</color>
+    <color name="button_bg_gray">#dddcdc</color>//按钮背景灰色
+
+    <color name="text_color_red_price">#f26969</color>
+
+    <color name="move_line">#f15353</color>//FilterBar 选中颜色
+    <color name="light_red">#f15353</color>//京东红
+    <color name="select_light_red">#f03f3f</color>//京东红:选中背景颜色
+
+    <color name="sub_title">#848689</color>//副标题文本颜色
+
+
+    <color name="sort_selected_text_color">#fff15353</color>
+    <color name="sort_normal_text_color">#ff000000</color>
+    <color name="search_title_hint_text_color">#ffb6b6b6</color>
+    <color name="search_title_text_color">#ff474646</color>
+    <color name="separator_line">#ffcccccc</color>
+    <color name="transparentblue">#445CACEE</color>
+    <color name="transparentwhite">#44ffffff</color>
+
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_ff">#F0F0F0</color>
+    <color name="color_00">#8A000000</color>
+
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+
+    <color name="botton_nav_bg">#f8f8f8</color>
+
+    <color name="bn">#ffa0a0a0</color>
+
+    <!-- 公共属性 -->
+    <dimen name="person_head_relayout_padding">5dip</dimen>
+    <dimen name="margin_space_half">5dip</dimen>
+    <dimen name="margin_space">10dip</dimen>
+    <dimen name="height_row">45dip</dimen>
+    <dimen name="font_size_normal">14sp</dimen>
+    <dimen name="arrow_image_size">25dip</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="tag_common_margin">8.0dip</dimen>
+    <dimen name="height_button">40dip</dimen>
+    <dimen name="height_text">40dip</dimen>
+    <dimen name="margin_space_big">15dip</dimen>
+
+
 </resources>
