@@ -2,6 +2,7 @@ package org.hxy.platform.android.my;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import org.hxy.platform.android.common.base.mvp.BaseFragment;
 import org.hxy.platform.android.common.base.mvp.BasePresenter;
 import org.hxy.platform.android.common.base.mvp.BaseView;
+import org.hxy.platform.android.common.util.OrderUtils;
 import org.hxy.platform.android.common.view.MoreImageView;
 
 import butterknife.BindView;
@@ -152,7 +156,65 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View v) {
-
+    public void onClick(View view) {
+        int result = view.getId();
+        ActivityOptionsCompat compat = ActivityOptionsCompat.
+                makeScaleUpAnimation(view, view.getWidth() / 2, view.getHeight() / 2, 0, 0);
+        if(result == R.id.person_order_all_container){
+            //所有订单
+            startupOrderList(OrderUtils.OrderStatus.all.value(),"/my/orderList",compat);
+        }else if(result == R.id.personal_order_waitpay_layout){
+            //待支付订单
+            startupOrderList(OrderUtils.OrderStatus.waitPay.value(),"/my/orderList",compat);
+        }else if(result == R.id.personal_order_waitreceive_layout){
+            //待收货订单
+            startupOrderList(OrderUtils.OrderStatus.waitReceive.value(),"/my/orderList",compat);
+        }else if(result == R.id.personal_order_waitcomment_layout){
+            //待评论订单
+            startupOrderList(OrderUtils.OrderStatus.waitComment.value(),"/my/orderList",compat);
+        }else if(result == R.id.personal_order_returned){
+            //退款订单
+            startupOrderList(OrderUtils.OrderStatus.returned.value(),"/my/orderList",compat);
+        }else if(result==R.id.person_collect_aview){
+            //我的收藏
+            navigate(compat,"/my/collection");
+        }else if(result == R.id.person_integrate_rlayout){
+            //积分,余额
+            navigate(compat,"/my/wallet");
+        }else if(result== R.id.person_receive_address_aview){
+            //收货地址
+            navigate(compat,"/my/address");
+        }else if(result == R.id.setting_btn){
+            //设置
+            navigate(compat,"/my/account");
+        }else if(result == R.id.person_coupon_aview){
+            //优惠券
+            navigate(compat,"/my/coupon");
+        }else if(result==R.id.nickname_txtv){
+            //登录页
+            navigate(compat,"/my/login");
+        }
     }
+
+    public void startupOrderList(int orderStatus,String  url,ActivityOptionsCompat compat){
+
+//        if (!SPMobileApplication.getInstance().isLogined){
+//            showToastUnLogin();
+//            toLoginPage();
+//            return;
+//        }
+        ARouter.getInstance().build(url)
+                .withOptionsCompat(compat)
+                .withInt("orderStatus",orderStatus)
+                .navigation();
+    }
+    private void navigate(ActivityOptionsCompat compat,String url){
+        ARouter.getInstance().build(url)
+                .withOptionsCompat(compat)
+                .navigation();
+    }
+    public static PersonFragment newInstance() {
+        return new PersonFragment();
+    }
+
 }

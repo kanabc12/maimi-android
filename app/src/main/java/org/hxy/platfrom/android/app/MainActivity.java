@@ -1,6 +1,5 @@
 package org.hxy.platfrom.android.app;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import org.hxy.platform.android.app.R;
