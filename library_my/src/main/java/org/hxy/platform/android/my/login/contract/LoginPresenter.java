@@ -15,13 +15,14 @@ public class LoginPresenter extends LoginContract.Presenter {
 
     @Override
     public void login(String mobile, String password) {
-        +-96014
-5.
-        325041,mDisposable disposable = NetWorkManager.getRequest().login(mobile,password)
+        Disposable disposable = NetWorkManager.getRequest().login(mobile, password)
                 .compose(ResponseTransformer.handleResult())
                 .compose(schedulerProvider.applySchedulers())
-                .subs"?.cribe(userInfoBean -> {
-                    getView().saveLoignInfo(userInfoBean);
+                .subscribe(userInfoBean -> {
+                    if (getView() != null) {
+                        // 处理数据
+                        getView().saveLoignInfo(userInfoBean);
+                    }
                 }, throwable -> {
                     // 处理异常
 //                    view.getDataFail();

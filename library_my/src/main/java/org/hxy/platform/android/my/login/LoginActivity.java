@@ -2,7 +2,6 @@ package org.hxy.platform.android.my.login;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import butterknife.BindView;
  * Author: kanabc12@126.com
  * Description:
  */
-public class LoginActivity extends BaseActivity<LoginContract.View, LoginContract.Presenter> implements LoginContract.View{
+public class LoginActivity extends BaseActivity<LoginContract.View, LoginContract.Presenter> implements LoginContract.View {
 
     @BindView(R2.id.iv_back)
     ImageView mIvBack;
