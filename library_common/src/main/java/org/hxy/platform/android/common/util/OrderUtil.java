@@ -18,7 +18,7 @@ import org.hxy.platform.android.common.entity.order.Order;
 /**
  * Created by admin on 2016/7/1.
  */
-public class OrderUtils {
+public class OrderUtil {
 
     //订单类型
     public static final String typeWaitPay = "WAITPAY";    // 待支付

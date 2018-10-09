@@ -17,7 +17,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import org.hxy.platform.android.common.base.mvp.BaseFragment;
 import org.hxy.platform.android.common.base.mvp.BasePresenter;
 import org.hxy.platform.android.common.base.mvp.BaseView;
-import org.hxy.platform.android.common.util.OrderUtils;
+import org.hxy.platform.android.common.util.OrderUtil;
 import org.hxy.platform.android.common.view.MoreImageView;
 
 import butterknife.BindView;
@@ -162,19 +162,19 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
                 makeScaleUpAnimation(view, view.getWidth() / 2, view.getHeight() / 2, 0, 0);
         if(result == R.id.person_order_all_container){
             //所有订单
-            startupOrderList(OrderUtils.OrderStatus.all.value(),"/my/orderList",compat);
+            startupOrderList(OrderUtil.OrderStatus.all.value(),"/my/orderList",compat);
         }else if(result == R.id.personal_order_waitpay_layout){
             //待支付订单
-            startupOrderList(OrderUtils.OrderStatus.waitPay.value(),"/my/orderList",compat);
+            startupOrderList(OrderUtil.OrderStatus.waitPay.value(),"/my/orderList",compat);
         }else if(result == R.id.personal_order_waitreceive_layout){
             //待收货订单
-            startupOrderList(OrderUtils.OrderStatus.waitReceive.value(),"/my/orderList",compat);
+            startupOrderList(OrderUtil.OrderStatus.waitReceive.value(),"/my/orderList",compat);
         }else if(result == R.id.personal_order_waitcomment_layout){
             //待评论订单
-            startupOrderList(OrderUtils.OrderStatus.waitComment.value(),"/my/orderList",compat);
+            startupOrderList(OrderUtil.OrderStatus.waitComment.value(),"/my/orderList",compat);
         }else if(result == R.id.personal_order_returned){
             //退款订单
-            startupOrderList(OrderUtils.OrderStatus.returned.value(),"/my/orderList",compat);
+            startupOrderList(OrderUtil.OrderStatus.returned.value(),"/my/orderList",compat);
         }else if(result==R.id.person_collect_aview){
             //我的收藏
             navigate(compat,"/my/collection");

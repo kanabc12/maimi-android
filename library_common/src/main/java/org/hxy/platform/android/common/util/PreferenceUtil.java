@@ -16,9 +16,9 @@ import java.util.List;
  *  创建时间:  2017/8/1 0001 20:14
  *  描述：    TODO
  */
-public class PreferenceUtils {
+public class PreferenceUtil {
 
-    private static final String TAG = "PreferenceUtils";
+    private static final String TAG = "PreferenceUtil";
 
     private static final String NAME = "mail";
     private static final String KEY_USER_NAME = "user_name";

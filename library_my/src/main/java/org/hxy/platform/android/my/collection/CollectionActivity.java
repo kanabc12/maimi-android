@@ -84,7 +84,7 @@ public class CollectionActivity extends BaseActivity {
     }
 
     private void initData() {
-//        final Observable<NewsProductInfoBean> newsObservable = RetrofitFactory.getInstance().listCollectProduct(PreferenceUtils.getUserId(this), 1, 10);
+//        final Observable<NewsProductInfoBean> newsObservable = RetrofitFactory.getInstance().listCollectProduct(PreferenceUtil.getUserId(this), 1, 10);
 //        newsObservable.compose(compose(this.<NewsProductInfoBean>bindToLifecycle())).subscribe(new BaseObserver<NewsProductInfoBean>(this) {
 //            @Override
 //            protected void onHandleSuccess(NewsProductInfoBean newsProductInfoBean) {

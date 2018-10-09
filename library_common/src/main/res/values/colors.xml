@@ -5,6 +5,7 @@
     <color name="dialog_bg">#aa333333</color>
     <color name="no_network_bg">#333333</color>
     <color name="search_corner_bg">#ddBBBABA</color>
+    <color name="background">#FAFAFA</color>
 
     <!-- 公共颜色属性 -->
     <color name="bg_activity">#fff0f2f5</color>

@@ -1,16 +1,15 @@
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId rootProject.ext.applicationId
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
-        multiDexEnabled true
+
         //alibaba框架arouter路由配置
         javaCompileOptions {
             annotationProcessorOptions {
@@ -18,19 +17,17 @@ android {
             }
         }
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
@@ -38,20 +35,8 @@ dependencies {
     })
     implementation deps.supportv7
     implementation deps.constraintlayout
-    implementation "com.android.support:multidex:$rootProject.multidexVersion"
     annotationProcessor deps.butterknifeCompiler
-    annotationProcessor deps.dagger_compiler
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouterCompilerVersion"
-    //leak
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
-    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
-    testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
-    implementation project(':library_my')
-    implementation project(':library_activity')
-    implementation project(':library_cart')
-    implementation project(':library_category')
-    implementation project(':library_common')
-    implementation project(':library_find')
-    implementation project(':library_index')
-    implementation project(':library_product')
+    annotationProcessor deps.dagger_compiler
+    api project(':library_common')
 }

@@ -16,10 +16,11 @@
 package org.hxy.platform.android.common.entity;
 
 
-import org.hxy.platform.android.common.base.UrlConfig;
+
+import org.hxy.platform.android.common.config.UrlConfig;
 import org.hxy.platform.android.common.entity.shop.ProductAttribute;
 import org.hxy.platform.android.common.entity.shop.ProductSpec;
-import org.hxy.platform.android.common.utils.CommonUtils;
+import org.hxy.platform.android.common.util.CommonUtil;
 import org.json.JSONArray;
 
 import java.io.Serializable;
@@ -428,7 +429,7 @@ public class Product implements IModel, Serializable {
     }
 
     public String getImageThumlUrl() {
-        return CommonUtils.getThumbnail(UrlConfig.FLEXIBLE_THUMBNAIL, this.goodsID);
+        return CommonUtil.getThumbnail(UrlConfig.FLEXIBLE_THUMBNAIL, this.goodsID);
 
     }
 

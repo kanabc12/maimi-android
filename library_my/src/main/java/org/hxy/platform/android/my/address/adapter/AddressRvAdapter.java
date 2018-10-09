@@ -156,7 +156,7 @@ public class AddressRvAdapter extends RecyclerView.Adapter {
 //                    RequestBody requestBody = new FormBody.Builder()
 //                            .add("id", id + "")
 //                            .build();
-//                    String userId = PreferenceUtils.getUserId(mContext);
+//                    String userId = PreferenceUtil.getUserId(mContext);
 //                    Call<RecepitAddressBean> call = (Call<RecepitAddressBean>) RetrofitFactory.getInstance().listAddressDelete(userId, requestBody);
 //                    call.enqueue(new Callback<RecepitAddressBean>() {
 //                        @Override
@@ -246,7 +246,7 @@ public class AddressRvAdapter extends RecyclerView.Adapter {
 //            RequestBody requestBody = new FormBody.Builder()
 //                    .add("id", id + "")
 //                    .build();
-//            String userId = PreferenceUtils.getUserId(mContext);
+//            String userId = PreferenceUtil.getUserId(mContext);
 //            Log.d(TAG, "selectAddress: " + userId);
 //            Call<RecepitAddressBean> call = (Call<RecepitAddressBean>) RetrofitFactory.getInstance().listAddressDefault(userId, id + "");
 //            call.enqueue(new Callback<RecepitAddressBean>() {
@@ -298,7 +298,7 @@ public class AddressRvAdapter extends RecyclerView.Adapter {
 //                    RequestBody requestBody = new FormBody.Builder()
 //                            .add("id", id + "")
 //                            .build();
-//                    String userId = PreferenceUtils.getUserId(mContext);
+//                    String userId = PreferenceUtil.getUserId(mContext);
 //                    Call<RecepitAddressBean> call = (Call<RecepitAddressBean>) RetrofitFactory.getInstance().listAddressDelete(userId, requestBody);
 //                    call.enqueue(new Callback<RecepitAddressBean>() {
 //                        @Override
@@ -326,7 +326,7 @@ public class AddressRvAdapter extends RecyclerView.Adapter {
         }
 
         public void getAddressList() {
-            /*Observable<RecepitAddressBean> newsObservable = RetrofitFactory.getInstance().listAddressList(PreferenceUtils.getUserId(mContext));
+            /*Observable<RecepitAddressBean> newsObservable = RetrofitFactory.getInstance().listAddressList(PreferenceUtil.getUserId(mContext));
 
             newsObservable.compose(((RecepitAddressActivity)mContext).<RecepitAddressBean>bindToLifecycle()).subscribe(new BaseObserver<RecepitAddressBean>(mContext) {
                 @Override
@@ -341,7 +341,7 @@ public class AddressRvAdapter extends RecyclerView.Adapter {
                     }
                 }
             });*/
-//            Call<RecepitAddressBean> call = (Call<RecepitAddressBean>) RetrofitFactory.getInstance().listAddressListCall(PreferenceUtils.getUserId(mContext));
+//            Call<RecepitAddressBean> call = (Call<RecepitAddressBean>) RetrofitFactory.getInstance().listAddressListCall(PreferenceUtil.getUserId(mContext));
 //            call.enqueue(new Callback<RecepitAddressBean>() {
 //                @Override
 //                public void onResponse(Call<RecepitAddressBean> call, Response<RecepitAddressBean> response) {

@@ -19,7 +19,7 @@ import org.hxy.platform.android.common.base.mvp.BaseActivity;
 import org.hxy.platform.android.common.base.mvp.BasePresenter;
 import org.hxy.platform.android.common.base.mvp.BaseView;
 import org.hxy.platform.android.common.util.IconUtil;
-import org.hxy.platform.android.common.util.PreferenceUtils;
+import org.hxy.platform.android.common.util.PreferenceUtil;
 import org.hxy.platform.android.my.R;
 import org.hxy.platform.android.my.R2;
 import org.hxy.platform.android.my.address.RecepitAddressActivity;
@@ -27,7 +27,6 @@ import org.hxy.platform.android.my.help.HelpCenterActivity;
 import org.hxy.platform.android.my.login.LoginActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /*
@@ -100,8 +99,8 @@ public class AccountSettingActivity extends BaseActivity {
     }
 
     public void init() {
-        if (!"".equals(PreferenceUtils.getUserId(this))) {
-            mTvUser.setText(PreferenceUtils.getUserName(this));
+        if (!"".equals(PreferenceUtil.getUserId(this))) {
+            mTvUser.setText(PreferenceUtil.getUserName(this));
             mBtUnregist.setVisibility(View.VISIBLE);
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.huaji);
             Bitmap roundedCornerBitmap = IconUtil.getRoundedCornerBitmap(bitmap);
@@ -115,7 +114,7 @@ public class AccountSettingActivity extends BaseActivity {
         if(result ==R.id.iv_back){
             finish();
         }else if(result == R.id.rl_address){
-            if(!"".equals(PreferenceUtils.getUserId(this))){
+            if(!"".equals(PreferenceUtil.getUserId(this))){
                 Intent intent = new Intent(this, RecepitAddressActivity.class);
                 startActivity(intent);
             }else{
@@ -125,12 +124,12 @@ public class AccountSettingActivity extends BaseActivity {
         }else if(result == R.id.bt_unregist){
             isUnregist();
         }else if(result ==R.id.rl_login ){
-            if("".equals(PreferenceUtils.getUserId(this))){
+            if("".equals(PreferenceUtil.getUserId(this))){
                 Intent intent2 = new Intent(this, LoginActivity.class);
                 startActivity(intent2);
             }
         }else if(result ==R.id.rl_help){
-            if("".equals(PreferenceUtils.getUserId(this))){
+            if("".equals(PreferenceUtil.getUserId(this))){
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
 
@@ -147,14 +146,14 @@ public class AccountSettingActivity extends BaseActivity {
 //        builder.setPositiveButton("是的", new DialogInterface.OnClickListener() {
 //            @Override
 //            public void onClick(DialogInterface dialog, int which) {
-//                Observable<LoginInfoBean> newsObservable = RetrofitFactory.getInstance().unRegist(PreferenceUtils.getUserId(AccountSettingActivity.this));
+//                Observable<LoginInfoBean> newsObservable = RetrofitFactory.getInstance().unRegist(PreferenceUtil.getUserId(AccountSettingActivity.this));
 //                newsObservable.compose(compose(AccountSettingActivity.this.<LoginInfoBean>bindToLifecycle())).subscribe(new BaseObserver<LoginInfoBean>(AccountSettingActivity.this) {
 //                    @Override
 //                    protected void onHandleSuccess(LoginInfoBean loginInfoBean) {
 //                        if("logout".equals(loginInfoBean.getResponse())){
-////                            PreferenceUtils.setUserName(AccountSettingActivity.this, "");
-//                            PreferenceUtils.setUserId(AccountSettingActivity.this, "");
-//                            PreferenceUtils.setRegistSuccess(AccountSettingActivity.this, false);
+////                            PreferenceUtil.setUserName(AccountSettingActivity.this, "");
+//                            PreferenceUtil.setUserId(AccountSettingActivity.this, "");
+//                            PreferenceUtil.setRegistSuccess(AccountSettingActivity.this, false);
 //                            finish();
 //                        }
 //
