@@ -49,7 +49,7 @@ public class ResponseTransformer {
         public ObservableSource<T> apply(Response<T> tResponse) throws Exception {
             int code = tResponse.getCode();
             String message = tResponse.getMsg();
-            if (code == 200) {
+            if (code == 0) {
                 return Observable.just(tResponse.getData());
             } else {
                 return Observable.error(new ApiException(code, message));

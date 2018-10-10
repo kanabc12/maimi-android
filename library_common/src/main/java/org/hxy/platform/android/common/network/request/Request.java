@@ -2,7 +2,11 @@ package org.hxy.platform.android.common.network.request;
 
 
 import org.hxy.platform.android.common.bean.UserInfoBean;
+import org.hxy.platform.android.common.entity.CategoryBean;
+import org.hxy.platform.android.common.entity.ProductCatagoryBean;
 import org.hxy.platform.android.common.network.response.Response;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -27,5 +31,25 @@ public interface Request {
     @FormUrlEncoded
     @POST("login")
     Observable<Response<UserInfoBean>> login(@Field("mobile") String mobile, @Field("pass") String pass);
+
+    /**
+     * 获取产品分类
+     * eg:http://localhost:8080/web/Login
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("getCatagroy")
+    Observable<Response<List<CategoryBean>>> getCatagroy();
+
+    /**
+     *
+     * @param cid
+     * @return
+     */
+    Observable<Response<List<ProductCatagoryBean>>> getProductCatagory(@Field("cid") String cid);
+
+
+
+
 
 }

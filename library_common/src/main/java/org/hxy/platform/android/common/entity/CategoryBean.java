@@ -1,8 +1,6 @@
 package org.hxy.platform.android.common.entity;
 
-import org.hxy.platform.android.common.base.baseadapter.entity.SectionEntity;
 
-import java.util.List;
 
 /**
  * Date：2018/9/17 on 19:56
@@ -10,285 +8,66 @@ import java.util.List;
  * Description:
  */
 public class CategoryBean {
-    /**
-     * code : 0
-     * data :
-     */
 
-    private int code;
-    private List<DataBean> data;
+        /**
+         * cid : 1
+         * createtime : 2017-10-10T19:41:39
+         * icon : http://120.27.23.105/images/category/shop.png
+         * ishome : 1
+         * name : 京东超市
+         */
+        private boolean checked;
+        private int cid;
+        private String createtime;
+        private String icon;
+        private int ishome;
+        private String name;
 
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public List<DataBean> getData() {
-        return data;
-    }
-
-    public void setData(List<DataBean> data) {
-        this.data = data;
-    }
-
-    public  class DataBean extends SectionEntity<DataBean.DataListBean> {
-
-        public DataBean(boolean isHeader, String header) {
-            super(isHeader, header);
+        public boolean isChecked() {
+            return checked;
         }
 
-        public DataBean(DataBean.DataListBean dataListBean) {
-            super(dataListBean);
+        public void setChecked(boolean checked) {
+            this.checked = checked;
         }
 
-        private Integer id;
-        private String type;
-        private String moreIcon;
-        private String moreText;
-        private String moduleStyle;
-        private String moduleTitle;
-        private String moreLinkType;
-        private String interfaceLink;
-        private String moreLinkParam;
-        private String moreTextDisplay;
-        private String moreUniversalNavigator;
-        private List<DataListBean> dataList;
-
-        public String getType() {
-            return type;
+        public int getCid() {
+            return cid;
         }
 
-        public void setType(String type) {
-            this.type = type;
+        public void setCid(int cid) {
+            this.cid = cid;
         }
 
-        public String getMoreIcon() {
-            return moreIcon;
+        public String getCreatetime() {
+            return createtime;
         }
 
-        public void setMoreIcon(String moreIcon) {
-            this.moreIcon = moreIcon;
+        public void setCreatetime(String createtime) {
+            this.createtime = createtime;
         }
 
-        public String getMoreText() {
-            return moreText;
+        public String getIcon() {
+            return icon;
         }
 
-        public void setMoreText(String moreText) {
-            this.moreText = moreText;
+        public void setIcon(String icon) {
+            this.icon = icon;
         }
 
-        public String getModuleStyle() {
-            return moduleStyle;
+        public int getIshome() {
+            return ishome;
         }
 
-        public void setModuleStyle(String moduleStyle) {
-            this.moduleStyle = moduleStyle;
+        public void setIshome(int ishome) {
+            this.ishome = ishome;
         }
 
-        public String getModuleTitle() {
-            return moduleTitle;
+        public String getName() {
+            return name;
         }
 
-        public void setModuleTitle(String moduleTitle) {
-            this.moduleTitle = moduleTitle;
+        public void setName(String name) {
+            this.name = name;
         }
-
-        public String getMoreLinkType() {
-            return moreLinkType;
-        }
-
-        public void setMoreLinkType(String moreLinkType) {
-            this.moreLinkType = moreLinkType;
-        }
-
-        public String getInterfaceLink() {
-            return interfaceLink;
-        }
-
-        public void setInterfaceLink(String interfaceLink) {
-            this.interfaceLink = interfaceLink;
-        }
-
-        public String getMoreLinkParam() {
-            return moreLinkParam;
-        }
-
-        public void setMoreLinkParam(String moreLinkParam) {
-            this.moreLinkParam = moreLinkParam;
-        }
-
-        public String getMoreTextDisplay() {
-            return moreTextDisplay;
-        }
-
-        public void setMoreTextDisplay(String moreTextDisplay) {
-            this.moreTextDisplay = moreTextDisplay;
-        }
-
-        public String getMoreUniversalNavigator() {
-            return moreUniversalNavigator;
-        }
-
-        public void setMoreUniversalNavigator(String moreUniversalNavigator) {
-            this.moreUniversalNavigator = moreUniversalNavigator;
-        }
-
-        public Integer getId() {
-            return id;
-        }
-
-        public void setId(Integer id) {
-            this.id = id;
-        }
-
-        public List<DataListBean> getDataList() {
-            return dataList;
-        }
-
-        public void setDataList(List<DataListBean> dataList) {
-            this.dataList = dataList;
-        }
-
-        public  class DataListBean {
-            /**
-             * type:我自己加的一个标识
-             * id :
-             * desc :
-             * type : category
-             * title : 防晒
-             * imgURL : https://wicdn.xiaohongchun.com/xhc-plat/1498710441052_sEBKxDGdsk.png
-             * linkType : storeTags
-             * linkParam :
-             * online_time :
-             * offline_time :
-             * universalNavigator : xhc://xiaohongchun/params?storeTags=&track_info=%7B%22api%22%3A%22%2Fauto_index%2Fauto_index%2Fcategory_index_modules%22%7D
-             */
-
-            private Integer id;
-            private String desc;
-            private String type;
-            private String title;
-            private String imgURL;
-            private String linkType;
-            private String linkParam;
-            private String online_time;
-            private String offline_time;
-            private String universalNavigator;
-            private Integer pid;
-
-            public DataListBean(Integer id, String desc, String type, String title, String imgURL, String linkType, String linkParam, String online_time, String offline_time, String universalNavigator, Integer pid) {
-                this.id = id;
-                this.desc = desc;
-                this.type = type;
-                this.title = title;
-                this.imgURL = imgURL;
-                this.linkType = linkType;
-                this.linkParam = linkParam;
-                this.online_time = online_time;
-                this.offline_time = offline_time;
-                this.universalNavigator = universalNavigator;
-                this.pid = pid;
-            }
-
-            public DataListBean() {
-                super();
-            }
-
-            public DataListBean(String type) {
-                this.type = type;
-            }
-
-            public Integer getId() {
-                return id;
-            }
-
-            public void setId(Integer id) {
-                this.id = id;
-            }
-
-            public String getDesc() {
-                return desc;
-            }
-
-            public void setDesc(String desc) {
-                this.desc = desc;
-            }
-
-            public String getType() {
-                return type;
-            }
-
-            public void setType(String type) {
-                this.type = type;
-            }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            public String getImgURL() {
-                return imgURL;
-            }
-
-            public void setImgURL(String imgURL) {
-                this.imgURL = imgURL;
-            }
-
-            public String getLinkType() {
-                return linkType;
-            }
-
-            public void setLinkType(String linkType) {
-                this.linkType = linkType;
-            }
-
-            public String getLinkParam() {
-                return linkParam;
-            }
-
-            public void setLinkParam(String linkParam) {
-                this.linkParam = linkParam;
-            }
-
-            public String getOnline_time() {
-                return online_time;
-            }
-
-            public void setOnline_time(String online_time) {
-                this.online_time = online_time;
-            }
-
-            public String getOffline_time() {
-                return offline_time;
-            }
-
-            public void setOffline_time(String offline_time) {
-                this.offline_time = offline_time;
-            }
-
-            public String getUniversalNavigator() {
-                return universalNavigator;
-            }
-
-            public void setUniversalNavigator(String universalNavigator) {
-                this.universalNavigator = universalNavigator;
-            }
-
-            public Integer getPid() {
-                return pid;
-            }
-
-            public void setPid(Integer pid) {
-                this.pid = pid;
-            }
-        }
-    }
 }

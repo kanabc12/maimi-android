@@ -48,23 +48,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/catecary_left_list"
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="110dp"
+            android:layout_height="match_parent" />
+
+        <ScrollView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:layout_weight="30">
-        </android.support.v7.widget.RecyclerView>
+            android:layout_weight="4"
+            android:fillViewport="true">
 
-        <FrameLayout
-            android:id="@+id/category_right_contains"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="100">
-        </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/right_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+                <org.hxy.platform.android.common.view.MyExpanableListView
+                    android:id="@+id/elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 
