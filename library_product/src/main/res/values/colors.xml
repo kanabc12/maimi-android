@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#FE4600</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="mainColor">#F20079</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="text03">#333333</color>
+    <color name="divide">#dddddd</color>
+    <color name="divide_dark">#dddddd</color>
+    <color name="backgroundWhite">#ffffff</color>
+    <color name="backgroundGray">#F2F5F7</color>
+
+    <color name="format_line_bg">#cacacb</color>
+
+</resources>

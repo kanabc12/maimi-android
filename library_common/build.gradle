@@ -67,7 +67,7 @@ dependencies {
     api deps.rxlifecycle
     api deps.rxlifecycle_components
     api deps.rxlifecycle_android
-
+    api deps.banner
     //leak
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/goods_detailRelative"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                style="@style/Base_Indicator_Text_Style"
+                android:id="@+id/goods_detail"
+                android:text="商品详情"
+                android:textColor="@color/mainColor"/>
+            <TextView
+                style="@style/Base_Indicator_Line_Style"
+                android:id="@+id/goods_detailDivide"
+                android:layout_alignLeft="@id/goods_detail"
+                android:layout_alignRight="@id/goods_detail"
+                android:layout_below="@id/goods_detail"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_marginTop="6px"
+            android:layout_marginBottom="6px"
+            android:layout_centerInParent="true"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divide"/>
+        <RelativeLayout
+            android:id="@+id/goods_configRelative"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                style="@style/Base_Indicator_Text_Style"
+                android:id="@+id/goods_config"
+                android:text="规格参数"/>
+            <TextView
+                style="@style/Base_Indicator_Line_Style"
+                android:id="@+id/goods_configDivide"
+                android:visibility="invisible"
+                android:layout_below="@id/goods_config"
+                android:layout_alignLeft="@id/goods_config"
+                android:layout_alignRight="@id/goods_config"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <View style="@style/common_horizontal_line" />
+    <FrameLayout
+        android:id="@+id/frameLayout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

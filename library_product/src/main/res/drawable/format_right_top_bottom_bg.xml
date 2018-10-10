@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 连框颜色值 -->
+    <item>
+        <shape>
+            <solid android:color="@color/format_line_bg" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/goodDetail_format_width"
+        android:right="@dimen/goodDetail_format_width"
+        android:top="@dimen/goodDetail_format_width">
+        <shape>
+            <solid android:color="@color/backgroundWhite" />
+        </shape>
+    </item>
+
+</layer-list>

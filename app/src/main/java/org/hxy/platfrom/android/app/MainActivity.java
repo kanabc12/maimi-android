@@ -35,6 +35,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFragmentManager = getSupportFragmentManager();
+        initView();
     }
 
     @Override
@@ -95,10 +97,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 .setText("99+")
                 .setHideOnSelect(false);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
-        //bottomNavigationBar.setMode(BottomNavigationBar.MODE_SHIFTING);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
-        //bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE);
-        //bottomNavigationBar.setAutoHideEnabled(true);
 
 
         bottomNavigationBar
@@ -140,6 +139,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     public void onTabReselected(int position) {
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
     }
 }

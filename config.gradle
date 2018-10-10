@@ -28,6 +28,7 @@ ext {
     testRunVersion = '1.0.2'
     espressoCcoreVersion = '3.0.2'
     glideVersion = '3.7.0'
+    bannerVersion = '1.4.10'
 }
 
 //compile依赖的第三方库
@@ -52,5 +53,6 @@ ext.deps = [
         dagger                     : "com.google.dagger:dagger:$daggerVersion",
         dagger_compiler            : "com.google.dagger:dagger-compiler:$daggerVersion",
         immersionbar               : "com.gyf.immersionbar:immersionbar:$immersionbarVersion",
-        glide                      :"com.github.bumptech.glide:glide:$glideVersion"
+        glide                      :"com.github.bumptech.glide:glide:$glideVersion",
+        banner                     :"com.youth.banner:banner:$bannerVersion"
 ]

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/item_key"
+        android:background="@drawable/format_left_right_bottom_bg"
+        style="@style/Base_Text_Style"
+        android:singleLine="false"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="wrap_content"
+        android:text="内存容量"
+        android:padding="12dp"/>
+    <TextView
+        android:id="@+id/item_value"
+        android:background="@drawable/format_right_bottom_bg"
+        style="@style/Base_Text_Style"
+        android:singleLine="false"
+        android:layout_width="0dp"
+        android:layout_weight="9"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent"
+        android:text="8G"
+        android:padding="12dp"/>
+
+</LinearLayout>
+

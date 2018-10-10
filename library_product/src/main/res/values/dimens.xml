@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!-- dp尺寸 -->
+    <dimen name="com_size_0001dp">1.0dp</dimen>
+    <dimen name="com_size_0003dp">3.0dp</dimen>
+    <dimen name="com_size_0004dp">4.0dp</dimen>
+    <dimen name="com_size_0012dp">12.0dp</dimen>
+    <dimen name="com_size_0013dp">12.5dp</dimen>
+    <dimen name="com_size_0030dp">30dp</dimen>
+
+    <dimen name="goodDetail_format_width">0.8dp</dimen>
+
+</resources>
