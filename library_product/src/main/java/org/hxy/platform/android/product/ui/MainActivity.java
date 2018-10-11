@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        title = ((TextView) findViewById(R.id.title));
-        tabLayout = ((TabLayout) findViewById(R.id.tabLayout));
-        viewPager = ((NoScrollViewPager) findViewById(R.id.viewPager));
+        title = findViewById(R.id.title);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
         List<BaseLazyFragment> fragmentList = new ArrayList<>();
         fragmentList.add(DetailFragment.newInstance());
         fragmentList.add(RecommendFragment.newInstance());
