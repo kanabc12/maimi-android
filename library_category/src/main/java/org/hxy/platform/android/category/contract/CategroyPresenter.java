@@ -20,16 +20,16 @@ public class CategroyPresenter extends CategoryContact.Presenter {
 
     public void getCatagroy() {
         Disposable disposable = NetWorkManager.getRequest().getCatagroy()
-                                .compose(ResponseTransformer.handleResult())
-                                .compose(schedulerProvider.applySchedulers())
-                                .subscribe(categoryBeans -> {
-                                    getView().showData(categoryBeans);
-                                    //拿到右侧第一条数据
-                                    int cid = categoryBeans.get(0).getCid();
-                                    getProductCatagory(cid+"");
-                                },throwable->{
-                                    //
-                                });
+                .compose(ResponseTransformer.handleResult())
+                .compose(schedulerProvider.applySchedulers())
+                .subscribe(categoryBeans -> {
+                    getView().showData(categoryBeans);
+                    //拿到右侧第一条数据
+                    int cid = categoryBeans.get(0).getCid();
+                    getProductCatagory(cid + "");
+                }, throwable -> {
+                    //
+                });
         addDisposabe(disposable);
     }
 
@@ -40,13 +40,13 @@ public class CategroyPresenter extends CategoryContact.Presenter {
                 .subscribe(productCatagoryBeans -> {
                     List<List<ProductCatagoryBean.ListBean>> childList = new ArrayList<>();
                     //遍历添加数据
-                    for(int i=0;i<productCatagoryBeans.size();i++){
+                    for (int i = 0; i < productCatagoryBeans.size(); i++) {
                         List<ProductCatagoryBean.ListBean> list = productCatagoryBeans.get(i).getList();
                         childList.add(list);
                     }
                     //给二级列表设置数据
-                    getView().showElvData(productCatagoryBeans,childList);
-                },throwable -> {
+                    getView().showElvData(productCatagoryBeans, childList);
+                }, throwable -> {
 
                 });
         addDisposabe(disposable);

@@ -16,12 +16,15 @@ import java.util.List;
  * version: 1.0
  */
 public interface CategoryContact {
-    interface View  extends BaseView {
+    interface View extends BaseView {
         void showData(List<CategoryBean> list);
+
         void showElvData(List<ProductCatagoryBean> groupList, List<List<ProductCatagoryBean.ListBean>> childList);
     }
+
     abstract class Presenter extends BasePresenter<View> {
-        abstract void getCatagroy();
-        abstract void getProductCatagory(String cid);
+        public abstract void getCatagroy();
+
+        public abstract void getProductCatagory(String cid);
     }
 }
