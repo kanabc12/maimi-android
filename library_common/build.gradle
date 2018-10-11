@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -26,6 +27,14 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+greendao{
+    schemaVersion 1 // 数据库版本号
+    daoPackage  'org.hxy.platform.android.common.greendao'//greenDao 自动生成的代码保存的包名
+    targetGenDir   'src/main/java' //自动生成的代码存储的路径，默认是 build/generated/source/greendao.
+    generateTests false //true的时候自动生成测试单元
+    //targetGenDirTests:测试单元的生成目录默认是 src/androidTest/java
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
@@ -68,6 +77,7 @@ dependencies {
     api deps.rxlifecycle_components
     api deps.rxlifecycle_android
     api deps.banner
+    api deps.greenDao
     //leak
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"

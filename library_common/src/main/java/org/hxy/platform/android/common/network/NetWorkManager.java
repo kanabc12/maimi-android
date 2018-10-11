@@ -3,16 +3,14 @@ package org.hxy.platform.android.common.network;
 
 import org.hxy.platform.android.common.config.CommonConfig;
 import org.hxy.platform.android.common.config.UrlConfig;
-import org.hxy.platform.android.common.model.http.BaseInterceptor;
 import org.hxy.platform.android.common.network.converter.CustomizeGsonConverterFactory;
-import org.hxy.platform.android.common.network.request.Request;
+import org.hxy.platform.android.common.api.Request;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Zaifeng on 2018/2/28.

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -15,7 +16,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="25dp"
-            android:background="@drawable/agm"/>
+            android:background="@drawable/agm" />
 
 
         <TextView
@@ -27,7 +28,7 @@
             android:gravity="center"
             android:text="收藏夹"
             android:textColor="@color/black"
-            android:textSize="17sp"/>
+            android:textSize="17sp" />
 
 
     </RelativeLayout>
@@ -36,20 +37,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.young.jdmall.ui.view.RecyclerRefreshLayout
+
+        <org.hxy.platform.android.common.view.RecyclerRefreshLayout
             android:id="@+id/rl_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.young.jdmall.ui.view.RecyclerLoadMoreView
+            <org.hxy.platform.android.common.view.RecyclerLoadMoreView
                 android:id="@+id/rl_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </com.young.jdmall.ui.view.RecyclerLoadMoreView>
-        </com.young.jdmall.ui.view.RecyclerRefreshLayout>
+                android:layout_height="match_parent" />
+        </org.hxy.platform.android.common.view.RecyclerRefreshLayout>
     </RelativeLayout>
-
 
 
 </LinearLayout>

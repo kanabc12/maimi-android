@@ -29,6 +29,7 @@ ext {
     espressoCcoreVersion = '3.0.2'
     glideVersion = '3.7.0'
     bannerVersion = '1.4.10'
+    greenDaoVersion = '3.2.2'
 }
 
 //compile依赖的第三方库
@@ -54,5 +55,6 @@ ext.deps = [
         dagger_compiler            : "com.google.dagger:dagger-compiler:$daggerVersion",
         immersionbar               : "com.gyf.immersionbar:immersionbar:$immersionbarVersion",
         glide                      :"com.github.bumptech.glide:glide:$glideVersion",
-        banner                     :"com.youth.banner:banner:$bannerVersion"
+        banner                     :"com.youth.banner:banner:$bannerVersion",
+        greenDao                   :"org.greenrobot:greendao:$greenDaoVersion"
 ]

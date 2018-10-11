@@ -1,4 +1,4 @@
-package org.hxy.platform.android.common.network.request;
+package org.hxy.platform.android.common.api;
 
 
 import org.hxy.platform.android.common.bean.UserInfoBean;
