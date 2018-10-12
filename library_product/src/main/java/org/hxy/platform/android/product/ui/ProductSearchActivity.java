@@ -217,7 +217,7 @@ public class ProductSearchActivity extends BaseActivity<ProductSearchContact.Vie
      * 删除搜索历史
      */
     private void clearSearchHistory() {
-        CacheManager.getInstance().saveSearchHistory(null);
+        getPresenter().saveSearchHistory(null);
         initSearchHistory(null);
     }
     /**
@@ -248,7 +248,7 @@ public class ProductSearchActivity extends BaseActivity<ProductSearchContact.Vie
      * 后保存搜索历史
      */
     private void saveSearchHistory(String query) {
-        List<String> list = CacheManager.getInstance().getSearchHistory();
+        List<String> list = historyList;
 
         boolean flag = false;
 
@@ -278,7 +278,7 @@ public class ProductSearchActivity extends BaseActivity<ProductSearchContact.Vie
                 list.remove(i);
             }
         }
-        CacheManager.getInstance().saveSearchHistory(list);
+        getPresenter().saveSearchHistory(list);
 
         initSearchHistory(list);
 
@@ -292,4 +292,10 @@ public class ProductSearchActivity extends BaseActivity<ProductSearchContact.Vie
 //        intent.putExtra("searchKey", query);
 //        startActivity(intent);
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
 }
