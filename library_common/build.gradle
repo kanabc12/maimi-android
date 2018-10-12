@@ -78,6 +78,7 @@ dependencies {
     api deps.rxlifecycle_android
     api deps.banner
     api deps.greenDao
+    api deps.eventBus
     //leak
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"

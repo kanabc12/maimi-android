@@ -11,4 +11,6 @@
     <color name="bg_activity">#fff0f2f5</color>
     <color name="bg_view">#ffffffff</color>
     <color name="bg_header">#fff8f8f8</color>
+    <color name="colorW">#ffff</color>
+    <color name="colorBlack">#000000</color>
 </resources>

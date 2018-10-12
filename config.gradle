@@ -30,6 +30,7 @@ ext {
     glideVersion = '3.7.0'
     bannerVersion = '1.4.10'
     greenDaoVersion = '3.2.2'
+    eventBusVersion = '2.4.1'
 }
 
 //compile依赖的第三方库
@@ -56,5 +57,6 @@ ext.deps = [
         immersionbar               : "com.gyf.immersionbar:immersionbar:$immersionbarVersion",
         glide                      :"com.github.bumptech.glide:glide:$glideVersion",
         banner                     :"com.youth.banner:banner:$bannerVersion",
-        greenDao                   :"org.greenrobot:greendao:$greenDaoVersion"
+        greenDao                   :"org.greenrobot:greendao:$greenDaoVersion",
+        eventBus                   :"de.greenrobot:eventbus:$eventBusVersion"
 ]

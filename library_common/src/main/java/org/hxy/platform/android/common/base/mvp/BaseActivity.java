@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
+import org.hxy.platform.android.common.activity.ActivityManager;
 import org.hxy.platform.android.common.util.NetworkUtil;
 
 import butterknife.ButterKnife;
@@ -53,6 +54,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
             presenter.attachView(view);
         }
         init();
+        ActivityManager.getInstance().addActivity(this);
     }
 
     //由子类指定具体类型
@@ -81,6 +83,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         if (unbinder != null) {
             unbinder.unbind();
         }
+        ActivityManager.getInstance().finishActivity(this);
     }
 
     /**
