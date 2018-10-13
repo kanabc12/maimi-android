@@ -37,7 +37,6 @@ public interface Request {
      * eg:http://localhost:8080/web/Login
      * @return
      */
-    @FormUrlEncoded
     @POST("getCatagroy")
     Observable<Response<List<CategoryBean>>> getCatagroy();
 
@@ -46,6 +45,7 @@ public interface Request {
      * @param cid
      * @return
      */
+    @POST("getProductCatagory")
     Observable<Response<List<ProductCatagoryBean>>> getProductCatagory(@Field("cid") String cid);
 
 

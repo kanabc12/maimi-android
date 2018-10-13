@@ -37,12 +37,12 @@ import butterknife.BindView;
  */
 public class CategoryFragment extends BaseFragment<CategoryContact.View, CategoryContact.Presenter> implements CategoryContact.View {
     @BindView(R2.id.lv)
-    private ListView mLv;
-    private LeftLvAdapter lvAdapter;
+    ListView mLv;
+    LeftLvAdapter lvAdapter;
     @BindView(R2.id.right_banner)
-    private Banner mBanner;
+    Banner mBanner;
     @BindView(R2.id.elv)
-    private ExpandableListView mElv;
+    ExpandableListView mElv;
 
 
     @Override

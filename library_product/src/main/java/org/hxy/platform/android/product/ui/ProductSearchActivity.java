@@ -76,7 +76,7 @@ public class ProductSearchActivity extends BaseActivity<ProductSearchContact.Vie
     private List<String> historyList;
     private ConfirmDialog dialog;
     @Autowired
-    private String searchKey;
+    String searchKey;
 
     private boolean hisFlag = false;
 

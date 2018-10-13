@@ -15,6 +15,7 @@ import org.hxy.platform.android.common.base.mvp.BasePresenter;
 import org.hxy.platform.android.common.base.mvp.BaseView;
 import org.hxy.platform.android.common.util.ToastUtil;
 import org.hxy.platform.android.common.widget.VerificationSeekBar;
+import org.hxy.platform.android.my.R;
 import org.hxy.platform.android.my.R2;
 
 import butterknife.BindView;
@@ -45,7 +46,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.activity_register;
     }
 
     @Override
