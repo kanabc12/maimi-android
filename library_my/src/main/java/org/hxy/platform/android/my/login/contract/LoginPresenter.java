@@ -25,7 +25,7 @@ public class LoginPresenter extends LoginContract.Presenter {
                     }
                 }, throwable -> {
                     // 处理异常
-//                    view.getDataFail();
+                    getView().setErrorMessage(throwable.getMessage());
                 });
         addDisposabe(disposable);
     }

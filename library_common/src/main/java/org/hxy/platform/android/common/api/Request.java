@@ -25,12 +25,12 @@ public interface Request {
      * 账密登录
      * eg:http://localhost:8080/web/Login
      * @param mobile 手机号码
-     * @param pass   密码
+     * @param password   密码
      * @return
      */
     @FormUrlEncoded
-    @POST("login")
-    Observable<Response<UserInfoBean>> login(@Field("mobile") String mobile, @Field("pass") String pass);
+    @POST("auth/login")
+    Observable<Response<UserInfoBean>> login(@Field("mobile") String mobile, @Field("password") String password);
 
     /**
      * 获取产品分类

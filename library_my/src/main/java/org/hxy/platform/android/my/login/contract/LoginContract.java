@@ -16,6 +16,7 @@ public interface LoginContract {
         String getMobile();
         String getPassword();
         void saveLoignInfo(UserInfoBean userInfoBean);
+        void setErrorMessage(String message);
     }
     abstract class Presenter extends BasePresenter<View> {
         public abstract void login(String mobile,String password);
