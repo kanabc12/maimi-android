@@ -5,6 +5,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import org.hxy.platform.android.common.base.mvp.BaseActivity;
 import org.hxy.platform.android.common.bean.UserInfoBean;
 import org.hxy.platform.android.my.R;
@@ -19,6 +21,7 @@ import butterknife.BindView;
  * Author: kanabc12@126.com
  * Description:
  */
+@Route(path = "/my/login")
 public class LoginActivity extends BaseActivity<LoginContract.View, LoginContract.Presenter> implements LoginContract.View {
 
     @BindView(R2.id.iv_back)

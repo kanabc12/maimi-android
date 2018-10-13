@@ -79,6 +79,8 @@ dependencies {
     api deps.banner
     api deps.greenDao
     api deps.eventBus
+    api deps.convenientbanner
+    api deps.googlezxing
     //leak
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"

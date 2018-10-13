@@ -17,7 +17,7 @@ import com.youth.banner.BannerConfig;
 
 import org.hxy.platform.android.common.util.ScreenLengthUtils;
 import org.hxy.platform.android.product.R;
-import org.hxy.platform.android.product.ui.MainActivity;
+import org.hxy.platform.android.product.ui.ProductDetailActivity;
 import org.hxy.platform.android.product.views.MyImageLoader;
 import org.hxy.platform.android.product.views.SlideDetailsLayout;
 
@@ -51,7 +51,7 @@ public class DetailFragment extends BaseLazyFragment implements SlideDetailsLayo
     private List<TextView> tabTextList=new ArrayList<>();
     private Fragment currFragment;
     private int currIndex=0;
-    public MainActivity activity;
+    public ProductDetailActivity activity;
     private float fromX;
     private ArrayList<String> listBannerImages;
     private ArrayList<Integer> listBannerImages2;
@@ -59,7 +59,7 @@ public class DetailFragment extends BaseLazyFragment implements SlideDetailsLayo
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        activity = (MainActivity) context;
+        activity = (ProductDetailActivity) context;
     }
     @Override
     protected void getBundles() {
@@ -127,7 +127,7 @@ public class DetailFragment extends BaseLazyFragment implements SlideDetailsLayo
         view.findViewById(R.id.detail_allCommentRelative).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).setSelectPosition(1);
+                ((ProductDetailActivity) getActivity()).setSelectPosition(1);
             }
         });
         //回到顶部

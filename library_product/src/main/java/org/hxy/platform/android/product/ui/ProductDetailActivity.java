@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import org.hxy.platform.android.product.R;
 import org.hxy.platform.android.product.adapter.LazyViewpagerAdapter;
 import org.hxy.platform.android.product.fragment.BaseLazyFragment;
@@ -17,7 +19,8 @@ import org.hxy.platform.android.product.views.NoScrollViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+@Route(path = "/product/detail")
+public class ProductDetailActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private NoScrollViewPager viewPager;

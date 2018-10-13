@@ -43,7 +43,7 @@ import de.greenrobot.event.EventBus;
  * desc   :
  * version: 1.0
  */
-@Route(path = "/search/productSearch")
+@Route(path = "/product/search")
 public class ProductSearchActivity extends BaseActivity<ProductSearchContact.View,ProductSearchContact.Presenter> implements ProductSearchContact.View  {
     @BindView(R2.id.et_search)
     OneKeyClearEditText etSearch;

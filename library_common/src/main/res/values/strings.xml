@@ -4,4 +4,6 @@
     <string name="brvah_load_failed">加载失败，请点我重试</string>
     <string name="brvah_load_end">没有更多数据</string>
     <string name="icon">icon</string>
+
+    <string name="zxing_bar_name">ZxingLib</string>
 </resources>

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.widget.FrameLayout;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import org.hxy.platform.android.app.R;
 import org.hxy.platform.android.cart.ShoppingCartFragment;
 import org.hxy.platform.android.category.CategoryFragment;
@@ -19,6 +21,7 @@ import org.hxy.platform.android.my.PersonFragment;
 
 import butterknife.BindView;
 
+@Route(path = "/app/main")
 public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener {
 
     @BindView(R.id.bottom_navigation_bar)

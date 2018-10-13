@@ -31,6 +31,8 @@ ext {
     bannerVersion = '1.4.10'
     greenDaoVersion = '3.2.2'
     eventBusVersion = '2.4.1'
+    convenientbannerVerson = '2.0.5'
+    googlezxingVersion = '3.3.3'
 }
 
 //compile依赖的第三方库
@@ -58,5 +60,7 @@ ext.deps = [
         glide                      :"com.github.bumptech.glide:glide:$glideVersion",
         banner                     :"com.youth.banner:banner:$bannerVersion",
         greenDao                   :"org.greenrobot:greendao:$greenDaoVersion",
+        convenientbanner           :"com.bigkoo:convenientbanner:$convenientbannerVerson",
+        googlezxing                :"com.google.zxing:core:$googlezxingVersion",
         eventBus                   :"de.greenrobot:eventbus:$eventBusVersion"
 ]

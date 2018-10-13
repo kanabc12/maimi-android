@@ -128,5 +128,6 @@
     <dimen name="height_text">40dip</dimen>
     <dimen name="margin_space_big">15dip</dimen>
 
-
+    <dimen name="radius">2dp</dimen>
+    <dimen name="distance">5dp</dimen>
 </resources>
