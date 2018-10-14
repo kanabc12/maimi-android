@@ -7,16 +7,16 @@ package org.hxy.platform.android.common.network.response;
 
 public class Response<T> {
 
-    private int ret; // 返回的code
+    private int code; // 返回的code
     private T data; // 具体的数据结果
     private String msg; // message 可用来返回接口的说明
 
     public int getCode() {
-        return ret;
+        return code;
     }
 
     public void setCode(int code) {
-        this.ret = code;
+        this.code = code;
     }
 
     public T getData() {

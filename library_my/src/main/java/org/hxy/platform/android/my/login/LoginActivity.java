@@ -110,6 +110,7 @@ public class LoginActivity extends BaseActivity<LoginContract.View, LoginContrac
     public void saveLoignInfo(UserInfoBean userInfoBean) {
         PreferenceUtil.setUserName(LoginActivity.this, mEtName.getText().toString());
         PreferenceUtil.setUserId(LoginActivity.this, userInfoBean.getUserid());
+        ToastUtil.showShort(LoginActivity.this,userInfoBean.getToken());
     }
 
     @Override

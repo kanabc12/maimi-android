@@ -1,5 +1,7 @@
 package org.hxy.platform.android.my.login.contract;
 
+import android.util.Log;
+
 import org.hxy.platform.android.common.network.NetWorkManager;
 import org.hxy.platform.android.common.network.response.ResponseTransformer;
 
@@ -12,6 +14,7 @@ import io.reactivex.disposables.Disposable;
  * Description:
  */
 public class LoginPresenter extends LoginContract.Presenter {
+    private static final String TAG = "LoginPresenter";
 
     @Override
     public void login(String mobile, String password) {
@@ -19,6 +22,7 @@ public class LoginPresenter extends LoginContract.Presenter {
                 .compose(ResponseTransformer.handleResult())
                 .compose(schedulerProvider.applySchedulers())
                 .subscribe(userInfoBean -> {
+                    Log.d(TAG, "login: "+userInfoBean.getUserid());
                     if (getView() != null) {
                         // 处理数据
                         getView().saveLoignInfo(userInfoBean);
