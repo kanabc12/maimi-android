@@ -48,35 +48,28 @@ public class GoodsConfigAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        MyViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_config_listview, null);
-            holder = new ViewHolder(convertView);
+            holder = new MyViewHolder(convertView);
+            convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (MyViewHolder) convertView.getTag();
         }
-        if(position==0){
-            holder.itemKey.setBackgroundResource(R.drawable.format_all_bg);
-            holder.itemValue.setBackgroundResource(R.drawable.format_right_top_bottom_bg);
-        }else{
-            holder.itemKey.setBackgroundResource(R.drawable.format_left_right_bottom_bg);
-            holder.itemValue.setBackgroundResource(R.drawable.format_right_bottom_bg);
-        }
+
         GoodsConfigBean config = data.get(position);
-        holder.itemKey.setText(config.keyProp);
-        holder.itemValue.setText(config.value);
+        holder.tv_config_key.setText(config.getKeyProp());
+        holder.tv_config_value.setText(config.getValue());
         return convertView;
     }
 
-    static class ViewHolder {
+    class MyViewHolder {
+        TextView tv_config_key;
+        TextView tv_config_value;
 
-        TextView itemKey;
-        TextView itemValue;
-
-        public ViewHolder(View view) {
-            itemKey = ((TextView) view.findViewById(R.id.item_key));
-            itemValue = ((TextView) view.findViewById(R.id.item_value));
-            view.setTag(this);
+        public MyViewHolder(View rootview) {
+            tv_config_key = (TextView) rootview.findViewById(R.id.tv_config_key);
+            tv_config_value = (TextView) rootview.findViewById(R.id.tv_config_value);
         }
     }
 

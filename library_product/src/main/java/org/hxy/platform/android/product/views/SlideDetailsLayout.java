@@ -22,14 +22,25 @@ import android.widget.RelativeLayout;
 import org.hxy.platform.android.product.R;
 
 
+@SuppressWarnings("unused")
 public class SlideDetailsLayout extends ViewGroup {
 
+    /**
+     * Callback for panel OPEN-CLOSE status changed.
+     */
     public interface OnSlideDetailsListener {
-        void onStatusChanged(Status status);
+        /**
+         * Called after status changed.
+         *
+         * @param status {@link Status}
+         */
+        void onStatucChanged(Status status);
     }
 
     public enum Status {
+        /** Panel is closed */
         CLOSE,
+        /** Panel is opened */
         OPEN;
 
         public static Status valueOf(int stats) {
@@ -84,10 +95,20 @@ public class SlideDetailsLayout extends ViewGroup {
         mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
+    /**
+     * Set the callback of panel OPEN-CLOSE status.
+     *
+     * @param listener {@link OnSlideDetailsListener}
+     */
     public void setOnSlideDetailsListener(OnSlideDetailsListener listener) {
         this.mOnSlideDetailsListener = listener;
     }
 
+    /**
+     * Open pannel smoothly.
+     *
+     * @param smooth true, smoothly. false otherwise.
+     */
     public void smoothOpen(boolean smooth) {
         if (mStatus != Status.OPEN) {
             mStatus = Status.OPEN;
@@ -96,6 +117,11 @@ public class SlideDetailsLayout extends ViewGroup {
         }
     }
 
+    /**
+     * Close pannel smoothly.
+     *
+     * @param smooth true, smoothly. false otherwise.
+     */
     public void smoothClose(boolean smooth) {
         if (mStatus != Status.CLOSE) {
             mStatus = Status.CLOSE;
@@ -104,6 +130,11 @@ public class SlideDetailsLayout extends ViewGroup {
         }
     }
 
+    /**
+     * Set the float value for indicate the moment of switch panel
+     *
+     * @param percent (0.0, 1.0)
+     */
     public void setPercent(float percent) {
         this.mPercent = percent;
     }
@@ -134,7 +165,10 @@ public class SlideDetailsLayout extends ViewGroup {
 
         mFrontView = getChildAt(0);
         mBehindView = getChildAt(1);
-        if (mDefaultPanel == 1) {
+
+        // set behindview's visibility to GONE before show.
+        //mBehindView.setVisibility(GONE);
+        if(mDefaultPanel == 1){
             post(new Runnable() {
                 @Override
                 public void run() {
@@ -157,6 +191,7 @@ public class SlideDetailsLayout extends ViewGroup {
         View child;
         for (int i = 0; i < getChildCount(); i++) {
             child = getChildAt(i);
+            // skip measure if gone
             if (child.getVisibility() == GONE) {
                 continue;
             }
@@ -179,9 +214,12 @@ public class SlideDetailsLayout extends ViewGroup {
         View child;
         for (int i = 0; i < getChildCount(); i++) {
             child = getChildAt(i);
+
+            // skip layout
             if (child.getVisibility() == GONE) {
                 continue;
             }
+
             if (child == mBehindView) {
                 top = b + offset;
                 bottom = top + b - t;
@@ -189,6 +227,7 @@ public class SlideDetailsLayout extends ViewGroup {
                 top = t + offset;
                 bottom = b + offset;
             }
+
             child.layout(left, top, right, bottom);
         }
     }
@@ -227,6 +266,10 @@ public class SlideDetailsLayout extends ViewGroup {
                     final float xDiffabs = Math.abs(xDiff);
                     final float yDiffabs = Math.abs(yDiff);
 
+                    // intercept rules：
+                    // 1. The vertical displacement is larger than the horizontal displacement;
+                    // 2. Panel stauts is CLOSE：slide up
+                    // 3. Panel status is OPEN：slide down
                     if (yDiffabs > mTouchSlop && yDiffabs >= xDiffabs
                             && !(mStatus == Status.CLOSE && yDiff > 0
                             || mStatus == Status.OPEN && yDiff < 0)) {
@@ -240,7 +283,9 @@ public class SlideDetailsLayout extends ViewGroup {
                 shouldIntercept = false;
                 break;
             }
+
         }
+
         return shouldIntercept;
     }
 
@@ -250,14 +295,17 @@ public class SlideDetailsLayout extends ViewGroup {
         if (null == mTarget) {
             return false;
         }
+
         if (!isEnabled()) {
             return false;
         }
+
         boolean wantTouch = true;
         final int action = MotionEventCompat.getActionMasked(ev);
 
         switch (action) {
             case MotionEvent.ACTION_DOWN: {
+                // if target is a view, we want the DOWN action.
                 if (mTarget instanceof View) {
                     wantTouch = true;
                 }
@@ -286,12 +334,16 @@ public class SlideDetailsLayout extends ViewGroup {
         return wantTouch;
     }
 
+    /**
+     * @param offset Displacement in vertically.
+     */
     private void processTouchEvent(final float offset) {
         if (Math.abs(offset) < mTouchSlop) {
             return;
         }
 
         final float oldOffset = mSlideOffset;
+        // pull up to open
         if (mStatus == Status.CLOSE) {
             // reset if pull down
             if (offset >= 0) {
@@ -304,8 +356,10 @@ public class SlideDetailsLayout extends ViewGroup {
                 return;
             }
 
+            // pull down to close
         } else if (mStatus == Status.OPEN) {
             final float pHeight = -getMeasuredHeight();
+            // reset if pull up
             if (offset <= 0) {
                 mSlideOffset = pHeight;
             } else {
@@ -317,9 +371,13 @@ public class SlideDetailsLayout extends ViewGroup {
                 return;
             }
         }
+        // relayout
         requestLayout();
     }
 
+    /**
+     * Called after gesture is ending.
+     */
     private void finishTouchEvent() {
         final int pHeight = getMeasuredHeight();
         final int percent = (int) (pHeight * mPercent);
@@ -333,6 +391,7 @@ public class SlideDetailsLayout extends ViewGroup {
                 mStatus = Status.OPEN;
                 changed = true;
             } else {
+                // keep panel closed
                 mSlideOffset = 0;
             }
         } else if (Status.OPEN == mStatus) {
@@ -341,6 +400,7 @@ public class SlideDetailsLayout extends ViewGroup {
                 mStatus = Status.CLOSE;
                 changed = true;
             } else {
+                // keep panel opened
                 mSlideOffset = -pHeight;
             }
         }
@@ -382,7 +442,7 @@ public class SlideDetailsLayout extends ViewGroup {
                     }
 
                     if (null != mOnSlideDetailsListener) {
-                        mOnSlideDetailsListener.onStatusChanged(mStatus);
+                        mOnSlideDetailsListener.onStatucChanged(mStatus);
                     }
                 }
             }
@@ -391,6 +451,10 @@ public class SlideDetailsLayout extends ViewGroup {
         animator.start();
     }
 
+    /**
+     * Whether the closed pannel is opened at first time.
+     * If open first, we should set the behind view's visibility as VISIBLE.
+     */
     private void checkAndFirstOpenPanel() {
         if (isFirstShowBehindView) {
             isFirstShowBehindView = false;
@@ -398,6 +462,10 @@ public class SlideDetailsLayout extends ViewGroup {
         }
     }
 
+    /**
+     * When pulling, target view changed by the panel status. If panel opened, the target is behind view.
+     * Front view is for otherwise.
+     */
     private void ensureTarget() {
         if (mStatus == Status.CLOSE) {
             mTarget = mFrontView;
@@ -406,6 +474,13 @@ public class SlideDetailsLayout extends ViewGroup {
         }
     }
 
+    /**
+     * Check child view can srcollable in vertical direction.
+     *
+     * @param direction Negative to check scrolling up, positive to check scrolling down.
+     *
+     * @return true if this view can be scrolled in the specified direction, false otherwise.
+     */
     protected boolean canChildScrollVertically(int direction) {
         if (mTarget instanceof AbsListView) {
             return canListViewSroll((AbsListView) mTarget);
@@ -470,12 +545,22 @@ public class SlideDetailsLayout extends ViewGroup {
         private float offset;
         private int status;
 
+        /**
+         * Constructor used when reading from a parcel. Reads the state of the superclass.
+         *
+         * @param source
+         */
         public SavedState(Parcel source) {
             super(source);
             offset = source.readFloat();
             status = source.readInt();
         }
 
+        /**
+         * Constructor called by derived classes when creating their SavedState objects
+         *
+         * @param superState The state of the superclass of this view
+         */
         public SavedState(Parcelable superState) {
             super(superState);
         }

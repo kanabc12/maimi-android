@@ -97,10 +97,10 @@ public final class CaptureActivity extends AppCompatActivity implements SurfaceH
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(0xAA000000);
         }
-        scanPreview = (SurfaceView) findViewById(R.id.capture_preview);
-        scanContainer = (RelativeLayout) findViewById(R.id.capture_container);
-        scanCropView = (RelativeLayout) findViewById(R.id.capture_crop_view);
-        scanLine = (ImageView) findViewById(R.id.capture_scan_line);
+        scanPreview = findViewById(R.id.capture_preview);
+        scanContainer =  findViewById(R.id.capture_container);
+        scanCropView =  findViewById(R.id.capture_crop_view);
+        scanLine = findViewById(R.id.capture_scan_line);
         View view = findViewById(R.id.news_detail_back);
         view.setOnClickListener(new View.OnClickListener() {
             @Override

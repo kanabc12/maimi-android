@@ -26,6 +26,7 @@ import org.hxy.platform.android.common.entity.NewsProductInfoBean;
 import org.hxy.platform.android.common.util.PriceFormater;
 import org.hxy.platform.android.common.view.CountDownView;
 import org.hxy.platform.android.common.view.CricleIndicatorView;
+import org.hxy.platform.android.common.view.NetworkImageHolderView;
 import org.hxy.platform.android.common.view.NoticeView;
 import org.hxy.platform.android.common.view.RecyclerLoadMoreView;
 import org.hxy.platform.android.index.R;

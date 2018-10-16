@@ -74,28 +74,5 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
             unbinder.unbind();
         }
     }
-    /**
-     * 线程调度
-     */
-//    protected <T> ObservableTransformer<T, T> compose(final LifecycleTransformer<T> lifecycle) {
-//        return new ObservableTransformer<T, T>() {
-//            @Override
-//            public ObservableSource<T> apply(Observable<T> observable) {
-//                return observable
-//                        .subscribeOn(Schedulers.io())
-//                        .doOnSubscribe(new Consumer<Disposable>() {
-//                            @Override
-//                            public void accept(Disposable disposable) throws Exception {
-//                                // 可添加网络连接判断等
-//                                if (!NetworkUtil.isNetworkAvailable(getActivity())) {
-//                                    Toast.makeText(getActivity(), "网络连接异常，请检查网络", Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        })
-//                        .observeOn(AndroidSchedulers.mainThread())
-//                        .compose(lifecycle);
-//            }
-//        };
-//    }
 
 }

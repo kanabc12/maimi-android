@@ -45,7 +45,6 @@ dependencies {
     api "com.chanven.lib:cptr:$rootProject.cptrVersion"
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.testRunVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoCcoreVersion"
     api deps.butterknife
     annotationProcessor deps.butterknifeCompiler
     api deps.design
@@ -81,6 +80,7 @@ dependencies {
     api deps.eventBus
     api deps.convenientbanner
     api deps.googlezxing
+    api deps.pagerslidingtabstrip
     //leak
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"

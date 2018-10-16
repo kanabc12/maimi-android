@@ -1,6 +1,11 @@
 package org.hxy.platform.android.common.api;
 
 
+import org.hxy.platform.android.common.bean.CartInfoBean;
+import org.hxy.platform.android.common.bean.CollectInfoBean;
+import org.hxy.platform.android.common.bean.CommentInfoBean;
+import org.hxy.platform.android.common.bean.ProductDesInfoBean;
+import org.hxy.platform.android.common.bean.ProductInfoBean;
 import org.hxy.platform.android.common.bean.UserInfoBean;
 import org.hxy.platform.android.common.entity.CategoryBean;
 import org.hxy.platform.android.common.entity.ProductCatagoryBean;
@@ -11,7 +16,10 @@ import java.util.List;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by Zaifeng on 2018/2/28.
@@ -48,8 +56,24 @@ public interface Request {
     @POST("getProductCatagory")
     Observable<Response<List<ProductCatagoryBean>>> getProductCatagory(@Field("cid") String cid);
 
+    //商品详情
+    @GET("product")
+    Observable<ProductInfoBean> listProductInfo(@Query("pId") int id);
+
+    //商品评论
+    @GET("product/comment")
+    Observable<CommentInfoBean> listComment(@Query("pId") int id, @Query("page") int page, @Query("pageNum") int pageNum);
+
+    @GET("product/description")
+    Observable<ProductDesInfoBean> listProductDes(@Query("pId") int id);
+
+    @GET("product/favorites")
+    Observable<CollectInfoBean> listCollect(@Header("userid") String userid, @Query("pId") int id);
 
 
-
+    //购物车
+    @FormUrlEncoded
+    @POST("cart")
+    Observable<CartInfoBean> listCart(@Field("sku") String test);
 
 }

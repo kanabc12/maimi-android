@@ -11,7 +11,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import org.hxy.platform.android.product.R;
-import org.hxy.platform.android.product.views.ItemWebView;
 
 
 /**
@@ -19,8 +18,7 @@ import org.hxy.platform.android.product.views.ItemWebView;
  */
 public class GoodsInfoWebFragment extends Fragment {
 
-    private ItemWebView detailWebView;
-    
+    public WebView wv_detail;
     private WebSettings webSettings;
     private LayoutInflater inflater;
 
@@ -29,34 +27,24 @@ public class GoodsInfoWebFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.inflater = inflater;
         View rootView = inflater.inflate(R.layout.fragment_item_info_web, null);
-        detailWebView = ((ItemWebView) rootView.findViewById(R.id.detail_webView));
-        init();
+        initWebView(rootView);
         return rootView;
     }
 
-    private void init() {
-        initWebView();
-        initView();
-    }
-
-    private void initView() {
-        String url = "http://m.tebaobao.com/wap/goods_intro.php?goods_id=421";
-        detailWebView.setFocusable(false);
-        detailWebView.loadUrl(url);
-    }
-
-    private void initWebView() {
-        webSettings = detailWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
+    public void initWebView(View rootView) {
+        String url = "http://item.m.gome.com.cn/product_des-A0006107941-pop8009529165.html";
+        wv_detail = (WebView) rootView.findViewById(R.id.wv_detail);
+        wv_detail.setFocusable(false);
+        wv_detail.loadUrl(url);
+        webSettings = wv_detail.getSettings();
         webSettings.setLoadWithOverviewMode(true);
-        webSettings.setBuiltInZoomControls(false);
-        webSettings.setDisplayZoomControls(false);
+        webSettings.setBuiltInZoomControls(true);
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
         webSettings.setBlockNetworkImage(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        detailWebView.setWebViewClient(new GoodsDetailWebViewClient());
+        wv_detail.setWebViewClient(new GoodsDetailWebViewClient());
     }
 
     private class GoodsDetailWebViewClient extends WebViewClient {

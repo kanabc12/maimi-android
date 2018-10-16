@@ -19,20 +19,20 @@ ext {
     arouterApiVersion = '1.4.0'
     arouterCompilerVersion = '1.2.1'
     frescoVersion = '1.10.0'
-    espressoVersion = '2.2.2'
+    espressoVersion = '3.0.2'
     constraintVersion = '1.1.2'
     leakcanaryVersion ='1.6.1'
     multidexVersion = '1.0.3'
     junitVersion = '4.12'
     cptrVersion = '1.1.0'
     testRunVersion = '1.0.2'
-    espressoCcoreVersion = '3.0.2'
     glideVersion = '3.7.0'
     bannerVersion = '1.4.10'
     greenDaoVersion = '3.2.2'
     eventBusVersion = '2.4.1'
     convenientbannerVerson = '2.0.5'
     googlezxingVersion = '3.3.3'
+    pagerslidingtabstripVersion='1.3.1'
 }
 
 //compile依赖的第三方库
@@ -41,7 +41,6 @@ ext.deps = [
         supportv7                  : "com.android.support:appcompat-v7:$supportLibraryVersion",
         recyclerviewv7             : "com.android.support:recyclerview-v7:$supportLibraryVersion",
         constraintlayout           : "com.android.support.constraint:constraint-layout:$constraintLayoutVersion",
-//增加butterknife 插件相关的库 (版本用内部定义的方式,方便管理)
         butterknife                : "com.jakewharton:butterknife:$butterknifeLatestReleaseVersion",
         butterknifeCompiler        : "com.jakewharton:butterknife-compiler:$butterknifeLatestReleaseVersion",
         design                     : "com.android.support:design:$supportLibraryVersion",
@@ -62,5 +61,6 @@ ext.deps = [
         greenDao                   :"org.greenrobot:greendao:$greenDaoVersion",
         convenientbanner           :"com.bigkoo:convenientbanner:$convenientbannerVerson",
         googlezxing                :"com.google.zxing:core:$googlezxingVersion",
+        pagerslidingtabstrip       :"com.gxz.pagerslidingtabstrip:library:$pagerslidingtabstripVersion",
         eventBus                   :"de.greenrobot:eventbus:$eventBusVersion"
 ]

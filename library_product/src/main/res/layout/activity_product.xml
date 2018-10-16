@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_title_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fefdfd"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp">
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/bar_back" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <!-- 商品、详情、评价切换的控件 -->
+                    <com.gxz.PagerSlidingTabStrip
+                        android:id="@+id/psts_tabs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:textColor="#000304"
+                        android:textSize="16sp"
+                        app:pstsDividerColor="#ffffff"
+                        app:pstsDividerPaddingTopBottom="0dp"
+                        app:pstsIndicatorColor="#000000"
+                        app:pstsIndicatorHeight="2dp"
+                        app:pstsScaleZoomMax="0.2"
+                        app:pstsShouldExpand="false"
+                        app:pstsSmoothScrollWhenClickTab="false"
+                        app:pstsTabPaddingLeftRight="12dp"
+                        app:pstsTextAllCaps="false"
+                        app:pstsTextSelectedColor="#000000"
+                        app:pstsUnderlineHeight="0dp" />
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="图文详情"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <org.hxy.platform.android.product.views.NoScrollViewPager
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_buy_des"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/seller"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="联系卖家"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_shop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/auk"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="店铺"
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_concern"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_concern"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/akb" />
+
+            <TextView
+                android:id="@+id/tv_concern"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="关注"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/a8i"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="购物车"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/tv_cart"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/circle_red"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#fff"
+                android:textSize="10sp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.2"
+            android:background="@drawable/buy_cart_bg"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="加入购物车"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5px"
+        android:layout_alignTop="@id/ll_buy_des"
+        android:background="@drawable/divider_bg" />
+
+</RelativeLayout>

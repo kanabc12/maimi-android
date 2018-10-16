@@ -7,6 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
+import org.hxy.platform.android.common.base.mvp.BaseActivity;
+import org.hxy.platform.android.common.base.mvp.BasePresenter;
+import org.hxy.platform.android.common.base.mvp.BaseView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +21,26 @@ import io.reactivex.Observable;
 /**
  * Created by 25505 on 2017/7/31.
  */
+@Route(path = "/index/secKill")
+public class SecKillActivity  extends BaseActivity {
 
-public class SecKillActivity  {
+    @Override
+    public int getLayoutId() {
+        return 0;
+    }
 
+    @Override
+    public BasePresenter createPresenter() {
+        return null;
+    }
+
+    @Override
+    public BaseView createView() {
+        return null;
+    }
+
+    @Override
+    public void init() {
+
+    }
 }

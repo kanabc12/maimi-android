@@ -109,6 +109,17 @@ public class ProductSearchActivity extends BaseActivity<ProductSearchContact.Vie
                 return false;
             }
         });
+        etSearch.setOnEditorActionListener((TextView v, int actionId, KeyEvent event)->{
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                query = etSearch.getText().toString().trim();
+                if (!query.isEmpty()) {
+                    EventBus.getDefault().post(new SearchEvent(query));
+                } else {
+                    EventBus.getDefault().post(new SearchEvent(etSearch.getHint().toString()));
+                }
+            }
+            return false;
+        });
     }
     private void initFlowLayout() {
         getPresenter().getHotSearchList();
@@ -144,12 +155,9 @@ public class ProductSearchActivity extends BaseActivity<ProductSearchContact.Vie
         final TextView tvChild = (TextView) LayoutInflater.from(this)
                 .inflate(R.layout.view_textview_flowflag, flowLayout, false);
         tvChild.setText(text);
-        tvChild.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String flowKey = tvChild.getText().toString();
-                EventBus.getDefault().post(new SearchHistoryEvent(flowKey));
-            }
+        tvChild.setOnClickListener(view ->{
+            String flowKey = tvChild.getText().toString();
+            EventBus.getDefault().post(new SearchHistoryEvent(flowKey));
         });
         if (xx) {
             flowLayout.addView(tvChild, 0);

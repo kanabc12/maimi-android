@@ -1,15 +1,19 @@
 package org.hxy.platfrom.android.app;
-
 import android.app.Application;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.multidex.MultiDex;
+import android.util.DisplayMetrics;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.squareup.leakcanary.LeakCanary;
 
+import org.hxy.platform.android.common.application.BaseApplication;
 import org.hxy.platform.android.common.config.CommonConfig;
+import org.hxy.platform.android.common.greendao.DaoMaster;
+import org.hxy.platform.android.common.greendao.DaoSession;
 import org.hxy.platform.android.common.network.NetWorkManager;
 
 
@@ -20,7 +24,20 @@ import org.hxy.platform.android.common.network.NetWorkManager;
  * desc   :
  * version: 1.0
  */
-public class MyApplication extends Application {
+public class MyApplication extends BaseApplication {
+    public static Context mContext;
+    /**
+     * 屏幕宽度
+     */
+    public static int screenWidth;
+    /**
+     * 屏幕高度
+     */
+    public static int screenHeight;
+    /**
+     * 屏幕密度
+     */
+    public static float screenDensity;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -35,6 +52,9 @@ public class MyApplication extends Application {
         }
         ARouter.init(this);
         Fresco.initialize(this);
+        //配置数据库
+        initScreenSize();
+        mContext = getApplicationContext();
     }
     @Override
     public void onTrimMemory(int level) {
@@ -51,5 +71,16 @@ public class MyApplication extends Application {
         super.attachBaseContext(base);
         // 主要是添加下面这句代码
         MultiDex.install(this);
+    }
+
+
+    /**
+     * 初始化当前设备屏幕宽高
+     */
+    private void initScreenSize() {
+        DisplayMetrics curMetrics = getApplicationContext().getResources().getDisplayMetrics();
+        screenWidth = curMetrics.widthPixels;
+        screenHeight = curMetrics.heightPixels;
+        screenDensity = curMetrics.density;
     }
 }

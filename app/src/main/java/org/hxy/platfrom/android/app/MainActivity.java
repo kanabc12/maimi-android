@@ -2,6 +2,7 @@ package org.hxy.platfrom.android.app;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -12,6 +13,9 @@ import org.hxy.platform.android.category.CategoryFragment;
 import org.hxy.platform.android.common.base.mvp.BaseActivity;
 import org.hxy.platform.android.common.base.mvp.BasePresenter;
 import org.hxy.platform.android.common.base.mvp.BaseView;
+import org.hxy.platform.android.common.dao.CartDao;
+import org.hxy.platform.android.common.entity.GoodsOrderInfoBean;
+import org.hxy.platform.android.common.event.EventBusBean;
 import org.hxy.platform.android.common.widget.bottomnavigation.BadgeItem;
 import org.hxy.platform.android.common.widget.bottomnavigation.BottomNavigationBar;
 import org.hxy.platform.android.common.widget.bottomnavigation.BottomNavigationItem;
@@ -19,7 +23,10 @@ import org.hxy.platform.android.find.FindFragment;
 import org.hxy.platform.android.index.MainHomeFragment;
 import org.hxy.platform.android.my.PersonFragment;
 
+import java.util.List;
+
 import butterknife.BindView;
+import de.greenrobot.event.EventBus;
 
 @Route(path = "/app/main")
 public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener {
@@ -34,12 +41,15 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     private FindFragment mFindFragment;
     private PersonFragment personFragment;
     private ShoppingCartFragment shoppingCartFragment;
+    private BadgeItem numberBadgeItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFragmentManager = getSupportFragmentManager();
         initView();
+        //注册EventBus
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -94,10 +104,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         initBottomNavigation();
     }
     private void initBottomNavigation() {
-        BadgeItem numberBadgeItem = new BadgeItem()
+        numberBadgeItem = new BadgeItem()
                 .setBorderWidth(4)
                 .setBackgroundColorResource(R.color.colorAccent)
-                .setText("99+")
+                .setText(getCartNumber()+"")
                 .setHideOnSelect(false);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
@@ -145,9 +155,45 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     }
 
+    private int getCartNumber(){
+        int mCount = 0;
+        List<GoodsOrderInfoBean> goodsOrderInfoBeen = CartDao.queryAll();
+        if (goodsOrderInfoBeen.size() > 0) {
+            for (GoodsOrderInfoBean goodsOrderInfoBean : goodsOrderInfoBeen) {
+                mCount += goodsOrderInfoBean.getCount();
+            }
+        }
+        return mCount;
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
-
+        numberBadgeItem.setText(getCartNumber()+"");
+//        int mCount = 0;
+//        List<GoodsOrderInfoBean> goodsOrderInfoBeen = CartDao.queryAll();
+//        if (goodsOrderInfoBeen.size() > 0) {
+//            for (GoodsOrderInfoBean goodsOrderInfoBean : goodsOrderInfoBeen) {
+//                mCount += goodsOrderInfoBean.getCount();
+//            }
+//            mTvCount.setVisibility(View.VISIBLE);
+//            numberBadgeItem.setText(mCount + "");
+//        } else {
+//            mTvCount.setVisibility(View.INVISIBLE);
+//        }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //反注册EventBus
+        EventBus.getDefault().unregister(this);
+    }
+
+    //EventBus发送消息之后回调的方法，参数是之前建立的Bean对象
+    public void onEventMainThread(EventBusBean bean){
+        //取出数据并进行UI的更新
+        onStart();
+    }
+
 }
