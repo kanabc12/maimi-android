@@ -81,6 +81,7 @@ dependencies {
     api deps.convenientbanner
     api deps.googlezxing
     api deps.pagerslidingtabstrip
+    api deps.cityPicker
     //leak
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"

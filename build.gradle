@@ -28,6 +28,7 @@ allprojects {
             url 'http://repo.spring.io/libs-release/'
         }
         maven { url "http://repo.spring.io/plugins-release/" }
+        maven { url "https://jitpack.io" }
     }
 }
 
