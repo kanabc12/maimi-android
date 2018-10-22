@@ -156,13 +156,20 @@ public class RecyclerLoadMoreView extends RecyclerView {
         public final ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             if (viewType == KEY_ITEM_TYPE_LOADING) {
                 mLoadingView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_setting_container_loading, parent, false);
-                mLoadingView.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (mRefreshListener != null) {
-                            if (mLoading.getVisibility() == View.GONE && mLoaded.getVisibility() == VISIBLE) {
-                                mRefreshListener.onRefresh();
-                            }
+//                mLoadingView.setOnClickListener(new OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        if (mRefreshListener != null) {
+//                            if (mLoading.getVisibility() == View.GONE && mLoaded.getVisibility() == VISIBLE) {
+//                                mRefreshListener.onRefresh();
+//                            }
+//                        }
+//                    }
+//                });
+                mLoadingView.setOnClickListener(view -> {
+                    if (mRefreshListener != null) {
+                        if (mLoading.getVisibility() == View.GONE && mLoaded.getVisibility() == VISIBLE) {
+                            mRefreshListener.onRefresh();
                         }
                     }
                 });
@@ -208,8 +215,8 @@ public class RecyclerLoadMoreView extends RecyclerView {
 
         public void setLoadItemStart(int key) {
             if (mLoadingView != null) {
-                mLoading = (LinearLayout) mLoadingView.findViewById(R.id.loading);
-                mLoaded = (TextView) mLoadingView.findViewById(R.id.loaded);
+                mLoading = mLoadingView.findViewById(R.id.loading);
+                mLoaded =  mLoadingView.findViewById(R.id.loaded);
                 switch (key) {
                     case KEY_LOADING:
                         mLoaded.setVisibility(GONE);
